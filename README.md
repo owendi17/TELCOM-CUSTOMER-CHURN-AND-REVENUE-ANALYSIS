@@ -2,7 +2,8 @@
 
 ## Overview
 This project analyzes customer churn and revenue patterns for a telecom company.  
-Customer churn — when a customer leaves for a competitor — is a major source of lost revenue. This analysis aims to identify high-risk customers, understand churn drivers, and provide actionable insights for retention campaigns.
+Customer churn — when a customer leaves for a competitor — is a major source of lost revenue.  
+The goal is to identify high-risk customers, understand churn drivers, and provide actionable insights for retention campaigns.
 
 ---
 
@@ -18,60 +19,78 @@ The dataset is the [Telco Customer Churn dataset](https://www.kaggle.com/blastch
 
 ---
 
-## Objectives
-1. Clean and preprocess the data.  
-2. Engineer meaningful features such as `RevenuePerMonth` and service interactions.  
-3. Explore data to uncover patterns in churn.  
-4. Build and evaluate machine learning models to predict churn.  
-5. Identify key drivers of churn and actionable insights for business decisions.
-
----
-
 ## Key Findings
-- Churn rate: ~26.5% of customers churn.  
+
+![Churn Distribution](images/churn_distribution.png)  
+*Figure 1: Churn vs Non-Churn customers*
+<img width="580" height="453" alt="image" src="https://github.com/user-attachments/assets/d03812c2-bae1-4a54-bb02-0bf7a9cc4c3b" />
+
+- Overall churn rate: ~26.5%  
 - Month-to-month contracts and Fiber optic internet have higher churn rates.  
-- Customers with higher `MonthlyCharges` and short tenure are at higher risk.  
-- Logistic Regression achieved the best performance in predicting churn with recall ~0.60 for churners.  
+- Customers with higher `MonthlyCharges` and shorter tenure are at higher risk.  
 - Top features influencing churn: `TotalCharges`, `MonthlyCharges`, `tenure`, `Contract type`, `PaymentMethod`.
 
+![Monthly Charges vs Churn](images/monthly_charges_churn.png)  
+*Figure 2: Monthly Charges vs Churn*
+
 ---
 
-## Features Engineered
-- `RevenuePerMonth` — total charges divided by tenure.  
-- `PhoneInternet` — interaction between phone service and fiber optic internet.  
+## Feature Engineering
+
+- **RevenuePerMonth** — total charges divided by tenure.  
+- **PhoneInternet** — interaction between phone service and fiber optic internet.  
 - Categorical variables encoded for modeling.  
 
 ---
 
-## Modeling
-- Models used: Logistic Regression, Random Forest, XGBoost.  
-- Evaluated using accuracy, precision, recall, F1-score.  
-- Threshold tuning applied for better recall on churners.  
+## Modeling & Evaluation
+
+- Models used: Logistic Regression, Random Forest, XGBoost  
+- Evaluated using accuracy, precision, recall, F1-score  
+- Threshold tuning applied for better recall on churners
+
+![Feature Importance](images/feature_importance.png)  
+*Figure 3: Top 10 features influencing churn (Random Forest)*
+<img width="902" height="545" alt="image" src="https://github.com/user-attachments/assets/060cc0fe-0b1b-4a46-b9a8-5a247d300009" />
+
+**Performance Snapshot:**
+
+| Model               | Accuracy | Recall (Churn) | F1-Score (Churn) |
+|--------------------|----------|----------------|-----------------|
+| Logistic Regression | 0.82     | 0.60           | 0.64            |
+| Random Forest       | 0.80     | 0.49           | 0.57            |
+| XGBoost             | 0.79     | 0.50           | 0.56            |
 
 ---
 
 ## Business Insights
-- High-risk customers can be prioritized for retention campaigns.  
-- Financial metrics (`RevenuePerMonth`, `MonthlyCharges`) and contract types are the strongest predictors of churn.  
+
+- High-risk customers can be **prioritized for retention campaigns**.  
+- Financial metrics (`RevenuePerMonth`, `MonthlyCharges`) and contract types are the **strongest predictors of churn**.  
 - Insights can inform marketing, customer support, and pricing strategies.  
 
 ---
 
 ## Limitations
-- Dataset is imbalanced: fewer churners than non-churners.  
-- Behavioral or usage data (e.g., support calls, service changes) not included.  
-- Static snapshot; temporal trends not analyzed.  
+
+- Dataset is imbalanced: fewer churners than non-churners  
+- Behavioral or usage data (e.g., support calls, service changes) not included  
+- Static snapshot; temporal trends not analyzed  
 
 ---
 
 ## Next Steps
-- Add more behavioral and service usage features.  
-- Explore temporal trends and subscription changes.  
-- Deploy a churn risk scoring system for retention campaigns.  
+
+- Add more behavioral and service usage features  
+- Explore temporal trends and subscription changes  
+- Deploy a **churn risk scoring system** for retention campaigns  
+- Link **Tableau dashboards** to this repo for interactive visualization  
 
 ---
 
 ## Tools & Libraries
-- Python (pandas, numpy, matplotlib, seaborn)  
-- Machine learning: scikit-learn, XGBoost  
+
+- Python: `pandas`, `numpy`, `matplotlib`, `seaborn`  
+- Machine learning: `scikit-learn`, `XGBoost`  
 - Jupyter Notebook for analysis and visualization
+
