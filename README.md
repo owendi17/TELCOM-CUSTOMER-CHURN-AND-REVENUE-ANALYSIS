@@ -1,4 +1,5 @@
 # Telecom Customer Churn & Revenue Analysis
+What if we could identify customers at risk of leaving before they churn?
 
 ## Overview
 This project analyzes customer churn and revenue patterns for a telecom company.  
